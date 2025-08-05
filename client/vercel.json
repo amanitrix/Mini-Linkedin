@@ -5,7 +5,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "https://mini-linkedin-frontend-orm2.onrender.com"
+      "destination": "https://mini-linkedin-jo9f.onrender.com"
     }
   ]
 } 
