@@ -10,7 +10,7 @@ import UserProfile from './components/UserProfile';
 import './App.css';
 
 // Set default axios base URL
-axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'https://mini-linkedin-jo9f.onrender.com/api';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -66,7 +66,7 @@ function App() {
     return <div className="loading">Loading...</div>;
   }
 
-  return (
+  return (  
     <div className="App">
       <Navbar user={user} logout={logout} />
       <div className="container">
