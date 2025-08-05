@@ -12,7 +12,11 @@ const app = express();
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? true // Allow all origins in production (or you can specify specific domains)
+    ? [
+        'https://mini-linkedin-frontend-orm2.onrender.com',
+        'https://mini-linkedin-jo9f.onrender.com',
+        'http://localhost:3000'
+      ]
     : ['http://localhost:3000'],
   credentials: true
 }));

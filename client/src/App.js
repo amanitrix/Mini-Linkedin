@@ -10,7 +10,7 @@ import UserProfile from './components/UserProfile';
 import './App.css';
 
 // Set default axios base URL
-const apiBaseURL = process.env.REACT_APP_API_URL || 'https://mini-linkedin-jo9f.onrender.com';
+const apiBaseURL = 'https://mini-linkedin-jo9f.onrender.com';
 axios.defaults.baseURL = apiBaseURL;
 console.log('API Base URL:', apiBaseURL);
 
