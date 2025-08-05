@@ -31,7 +31,7 @@ const Post = ({ post, user, onDelete, onUpdate }) => {
     if (!user) return;
     
     try {
-      const res = await axios.put(`/posts/like/${post._id}`);
+      const res = await axios.put(`/api/posts/like/${post._id}`);
       onUpdate({ ...post, likes: res.data });
     } catch (err) {
       console.error('Error liking post:', err);
@@ -44,7 +44,7 @@ const Post = ({ post, user, onDelete, onUpdate }) => {
 
     setLoading(true);
     try {
-      const res = await axios.post(`/posts/comment/${post._id}`, {
+      const res = await axios.post(`/api/posts/comment/${post._id}`, {
         text: commentText
       });
       onUpdate({ ...post, comments: res.data });
@@ -58,7 +58,7 @@ const Post = ({ post, user, onDelete, onUpdate }) => {
 
   const handleDeleteComment = async (commentId) => {
     try {
-      const res = await axios.delete(`/posts/comment/${post._id}/${commentId}`);
+      const res = await axios.delete(`/api/posts/comment/${post._id}/${commentId}`);
       onUpdate({ ...post, comments: res.data });
     } catch (err) {
       console.error('Error deleting comment:', err);
@@ -68,7 +68,7 @@ const Post = ({ post, user, onDelete, onUpdate }) => {
   const handleDeletePost = async () => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       try {
-        await axios.delete(`/posts/${post._id}`);
+        await axios.delete(`/api/posts/${post._id}`);
         onDelete(post._id);
       } catch (err) {
         console.error('Error deleting post:', err);

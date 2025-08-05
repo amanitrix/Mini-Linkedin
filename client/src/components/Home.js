@@ -15,7 +15,7 @@ const Home = ({ user }) => {
 
   const fetchPosts = async () => {
     try {
-      const res = await axios.get('/posts');
+      const res = await axios.get('/api/posts');
       setPosts(res.data);
     } catch (err) {
       setError('Failed to load posts');

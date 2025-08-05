@@ -19,7 +19,7 @@ const Profile = ({ user, setUser }) => {
 
   const fetchUserPosts = async () => {
     try {
-      const res = await axios.get(`/users/${user._id}/posts`);
+      const res = await axios.get(`/api/users/${user._id}/posts`);
       setPosts(res.data);
     } catch (err) {
       setError('Failed to load posts');

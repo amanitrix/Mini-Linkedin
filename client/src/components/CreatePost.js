@@ -20,7 +20,7 @@ const CreatePost = ({ onPostCreated }) => {
 
     setLoading(true);
     try {
-      const res = await axios.post('/posts', { content });
+      const res = await axios.post('/api/posts', { content });
       onPostCreated(res.data);
       setContent('');
     } catch (err) {
