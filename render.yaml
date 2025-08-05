@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: mini-linkedin-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: MONGODB_URI
+        value: mongodb+srv://oneaman99:pIajfO0ahfAN3Pb9@cluster0.dy9qeak.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        value: your-super-secret-jwt-key-change-this-in-production
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000 
