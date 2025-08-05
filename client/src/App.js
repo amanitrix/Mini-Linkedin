@@ -30,7 +30,7 @@ function App() {
 
   const checkAuth = async () => {
     try {
-      const res = await axios.get('/auth/me');
+      const res = await axios.get('/api/auth/me');
       setUser(res.data);
     } catch (error) {
       localStorage.removeItem('token');
@@ -41,7 +41,7 @@ function App() {
   };
 
   const login = async (userData) => {
-    const res = await axios.post('/auth/login', userData);
+    const res = await axios.post('/api/auth/login', userData);
     const { token, user } = res.data;
     localStorage.setItem('token', token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
@@ -52,7 +52,7 @@ function App() {
   const register = async (userData) => {
     try {
       console.log('Sending registration data:', userData);
-      const res = await axios.post('/auth/register', userData);
+      const res = await axios.post('/api/auth/register', userData);
       console.log('Registration response:', res.data);
       const { token, user } = res.data;
       localStorage.setItem('token', token);
