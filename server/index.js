@@ -28,6 +28,15 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/posts', require('./routes/posts'));
 app.use('/api/users', require('./routes/users'));
 
+// Debug route to check if server is working
+app.get('/api/test', (req, res) => {
+  res.json({ 
+    message: 'Server is running!',
+    env: process.env.NODE_ENV,
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Serve static files in production (only if build directory exists)
 if (process.env.NODE_ENV === 'production') {
   const buildPath = path.join(__dirname, '../client/build');

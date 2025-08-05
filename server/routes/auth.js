@@ -6,6 +6,13 @@ const auth = require('../middleware/auth');
 
 const router = express.Router();
 
+// @route   GET /api/auth
+// @desc    Test auth routes
+// @access  Public
+router.get('/', (req, res) => {
+  res.json({ message: 'Auth routes working' });
+});
+
 // @route   POST /api/auth/register
 // @desc    Register a user
 // @access  Public
