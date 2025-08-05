@@ -48,12 +48,19 @@ function App() {
   };
 
   const register = async (userData) => {
-    const res = await axios.post('/auth/register', userData);
-    const { token, user } = res.data;
-    localStorage.setItem('token', token);
-    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-    setUser(user);
-    return res.data;
+    try {
+      console.log('Sending registration data:', userData);
+      const res = await axios.post('/auth/register', userData);
+      console.log('Registration response:', res.data);
+      const { token, user } = res.data;
+      localStorage.setItem('token', token);
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      setUser(user);
+      return res.data;
+    } catch (error) {
+      console.error('Registration error:', error.response?.data || error.message);
+      throw error;
+    }
   };
 
   const logout = () => {
